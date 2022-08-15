@@ -12,33 +12,33 @@ const Events = require('events');
 const events = new Events();  // Event Pool
 /*
   If we were coding this out the "functional" way, we'd need a function for every possible thing
-  And in that function, we'd have to call every single body part
-  respondToSun(level) {
-    // eyelid();
-    // pupil();
-    // arm();
+  And in that function, we'd have to call every single delivery part
+  respondTopackage(status) {
+    // deliver();
+    // vendor();
+    // driver();
   }
 */
 
 // The new way, is to just have all the body parts listen for something that they need to care about
 // Respond to events
-events.on('light', eyelid);
-events.on('light', pupil);
-events.on('light', arm);
+events.on('packge', deliver);
+events.on('package', vendor);
+events.on('package', driver);
 
-function pupil(payload) {
-  console.log('Eyes are dialted at', payload.brightness, '%');
+function deliver(payload) {
+  console.log('Deliver package', payload.status, 'ready');
 }
 
-function arm(payload) {
-  if (payload.brightness >= 90) {
-    console.log('Covering Eyes');
+function driver(payload) {
+  if (payload.status === customerId && location) {
+    console.log('Pickup package');
   }
 }
 
-function eyelid(payload) {
-  if (payload.brightness >= 75) {
-    console.log('eyes are squinting');
+function vendor(payload) {
+  if (payload.status === customerId && location && driver) {
+    console.log('Send status ready to be delivered');
   }
 }
 
@@ -50,9 +50,9 @@ function eyelid(payload) {
 // We are effectively able to run 'n' number of functions with one line of code (the 'emit')
 // and not even know what code gets run in response to it!
 setInterval(() => {
-  let brightness = Math.ceil(Math.random() * 100);
+  let status; //= Math.ceil(Math.random() * 100);
   console.log('--------------------------------')
-  console.log('Brightness:', brightness)
-  events.emit('light', { brightness });
+  console.log('Status Ready or not:', status)
+  events.emit('package', { status });
 }, 2000)
 
