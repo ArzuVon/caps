@@ -4,7 +4,7 @@
 
 const events = require('./event-package');
 
-// Require our body parts ... they will hear our events
+// Require our deliveries ... they will hear our events
 require('./delivery/driver/driver.js');
 require('./delivery/vendor/vendor.js');
 
