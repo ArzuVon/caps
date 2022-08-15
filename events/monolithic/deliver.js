@@ -20,7 +20,7 @@ const events = new Events();  // Event Pool
   }
 */
 
-// The new way, is to just have all the body parts listen for something that they need to care about
+// The new way, is to just have the deliveries listen for something that they need to care about
 // Respond to events
 events.on('packge', deliver);
 events.on('package', vendor);
@@ -43,16 +43,16 @@ function vendor(payload) {
 }
 
 
-// Here, we're going to simulate the part of the brain that tells the body what's happening
-// Instead of running a function that calls out to every body part's function, we
-// will insted "emit" or "fire" or "raise" an event. Body parts that care about this event
+// Here, we're going to simulate the part of the hub that tells the deliveries what's happening
+// Instead of running a function that calls out to every deliveries function, we
+// will insted "emit" or "fire" or "raise" an event. Deliveries that care about this event
 // will do things on their own in response.
 // We are effectively able to run 'n' number of functions with one line of code (the 'emit')
 // and not even know what code gets run in response to it!
 setInterval(() => {
-  let status; //= Math.ceil(Math.random() * 100);
+  let status = Math.ceil(Math.random() * 100);
   console.log('--------------------------------')
   console.log('Status Ready or not:', status)
   events.emit('package', { status });
-}, 2000)
+}, 30000)
 
