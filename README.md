@@ -13,4 +13,8 @@
 #### Execute
 
 - Implement the Observer pattern using Publish/Subscribe
-- Create a modular, event based system.A
+- Create a modular, event based system. 
+
+ ### Part 2
+
+ >The core functionality we’ve already built remains the same. The difference in this phase is that we’ll be creating a networking layer. As such, the user stories that speak to application functionality remain unchanged, but our developer story changes to reflect the work needed for refactoring.
